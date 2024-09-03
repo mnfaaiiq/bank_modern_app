@@ -1,11 +1,17 @@
 import { card } from "../assets";
 import styles, { layout } from "../style";
 import Button from "./Button";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const CardDeal = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <section className={layout.section}>
-      <div className={layout.sectionInfo}>
+      <div className={layout.sectionInfo} data-aos="fade-right">
         <h2 className={styles.heading2}>
           Find a better card deal <br className="sm:block hidden" /> in few easy
           steps.
@@ -17,7 +23,11 @@ const CardDeal = () => {
 
         <Button styles="mt-10" />
       </div>
-      <div className={layout.sectionImg}>
+      <div
+        className={layout.sectionImg}
+        data-aos="zoom-out"
+        data-aos-duration="2000"
+      >
         <img
           src={card}
           alt="card"

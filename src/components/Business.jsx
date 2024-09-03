@@ -1,6 +1,9 @@
 import { features } from "../constants";
 import styles, { layout } from "../style";
 import Button from "./Button";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const FeatureCard = ({ icon, title, content, index }) => {
   return (
@@ -27,23 +30,33 @@ const FeatureCard = ({ icon, title, content, index }) => {
 };
 
 const Business = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <section id="features" className={layout.section}>
       <div className={layout.sectionInfo}>
-        <h2 className={styles.heading2}>
+        <h2 className={styles.heading2} data-aos="fade-right">
           You do the business, <br className="sm:block hidden" /> we’ll handle
           the money.
         </h2>
-        <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+        <p
+          className={`${styles.paragraph} max-w-[470px] mt-5`}
+          data-aos="fade-right"
+        >
           With the right credit card, you can improve your financial life by
           building credit, earning rewards and saving money. But with hundreds
           of credit cards on the market.
         </p>
 
-        <Button styles="mt-10" />
+        <Button styles="mt-10" data-aos="fade-up" />
       </div>
 
-      <div className={`${layout.sectionImg} flex-col`}>
+      <div
+        className={`${layout.sectionImg} flex-col`}
+        data-aos="fade-left"
+        data-aos-duration="2000"
+      >
         {features.map((feature, index) => (
           <FeatureCard key={feature.id} {...feature} index={index} />
         ))}

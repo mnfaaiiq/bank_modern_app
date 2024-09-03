@@ -1,8 +1,17 @@
 import { quotes } from "../assets";
+import Aos from "aos";
+import { useEffect } from "react";
+import "aos/dist/aos.css";
 
 const FeedbackCard = ({ content, name, title, img }) => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    <div className="flex justify-between flex-col px-10 py-12 rounded-[20px] max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card">
+    <div
+      className="flex justify-between flex-col px-10 py-12 rounded-[20px] max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card"
+      data-aos="fade-up"
+    >
       <img
         src={quotes}
         alt="double_quote"
